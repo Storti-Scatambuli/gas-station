@@ -21,11 +21,11 @@ for c in range(0, 10):
     
     if random() >= 0.5:
         carro_objeto = cars.Car
-        carro = cars.Car.gerar_carro(carro_objeto)
         carro_objeto.index_carro = c
+        carro = cars.Car.gerar_carro(carro_objeto)
         
         if type(carro) == list:
-            carros.append(carro)
+            carros.append(carro_objeto)
             for index, i in enumerate(bombas):
                 if i.combustivel == carro_objeto.combustivel:
                     if i.quantidade_combustivel > carro_objeto.capacidade_tanque_combustivel - carro_objeto.capacidade_tanque_combustivel and i.mangueiras >= 1:
