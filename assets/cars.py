@@ -32,5 +32,5 @@ class Car:
             print(f'Um veículo {self.index_carro} {self.tipo} {self.marca} não quis abastecer e passou direto pelo seu posto.\n')
             return ''
         else:
-            print(f'O veículo {self.index_carro} {self.tipo} {self.marca} está indo ao seu posto.')
+            print(f'O veículo {self.index_carro} {self.tipo} {self.marca} está indo ao seu posto.\n')
             return [self.index_carro, self.tipo, self.marca, self.combustivel, self.capacidade_tanque_combustivel, self.tanque_combustivel]
