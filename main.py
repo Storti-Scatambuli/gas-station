@@ -1,5 +1,4 @@
-from datetime import datetime
-from random import randint, random
+from random import random
 from assets import cars, bombs
 from time import sleep
 
