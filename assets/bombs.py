@@ -1,4 +1,5 @@
 class Bomb:
+    fila = []
     def __init__(self, nome='Bomba 1', combustivel='Gasolina', capacidade_combustivel=500, quantidade_combustivel=500, mangueiras=1):
         if capacidade_combustivel >= quantidade_combustivel:
             self.combustivel = combustivel
@@ -13,3 +14,16 @@ class Bomb:
         self.mangueiras -= 1
         carro.tanque_combustivel += quantidade
         self.quantidade_combustivel -= quantidade
+        
+    def adicionarfila(self, carro):
+        self.fila.append(carro)
+    
+    def verfila(self):
+        return self.fila
+    
+    def removerfila(self, carro):
+        if carro in self.fila:
+            self.fila.remove(carro)
+        else:
+            pass
+        

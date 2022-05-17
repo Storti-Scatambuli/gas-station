@@ -4,7 +4,6 @@ from time import sleep
 
 carros = []
 bombas = []
-fila = []
 abastecimento = []
 
 bomba1 = bombs.Bomb(capacidade_combustivel=1000, quantidade_combustivel=1000, mangueiras=2)
@@ -37,7 +36,6 @@ for c in range(0, 30):
                         break
                     elif index+1 == len(bombas):
                         print(f'O veículo {carro_objeto.index_carro} {carro_objeto.tipo} {carro_objeto.marca} não encontrou uma bomba disponível, ele está aguardando na fila.\n')
-                        fila.append(carro_objeto)
                         break
                 elif index+1 == len(bombas):
                     print(f'O veículo {carro_objeto.index_carro} {carro_objeto.tipo} {carro_objeto.marca} não encontrou uma bomba com o tipo de combustível {carro_objeto.combustivel}, e foi embora.\n')
@@ -52,4 +50,3 @@ for c in range(0, 30):
 
 
     sleep(1.5)
-
