@@ -10,8 +10,9 @@ class Car:
     index_bomba = 0
     index_carro = 0
     fila = bool()
+    requisicao = bool()
     
-    def __init__(self):
+    def __init__(self, index):
         tipos = ['Sedã', 'SUV', 'Caminhão']
         marcas = [['Honda', 'Volkswagen', 'Fiat'], ['Jeep', 'Volkswagen', 'Chevrolet'], ['Man', 'Mercedes-benz']]
         tipos_combustivel = ['Gasolina', 'Diesel', 'Etanol', 'GNV']
@@ -28,10 +29,11 @@ class Car:
             self.capacidade_tanque_combustivel = randint(50, 80)
             self.combustivel = tipos_combustivel[choice([0, 2, 3])]
 
+        self.index_carro = index
         self.tanque_combustivel = randint(int(self.capacidade_tanque_combustivel * 0.01), self.capacidade_tanque_combustivel)
         if self.tanque_combustivel > self.capacidade_tanque_combustivel * (randint(40, 100)/100):
             print(f'Um veículo {self.index_carro} {self.tipo} {self.marca} não quis abastecer e passou direto pelo seu posto.\n')
-            return ''
+            self.requisicao = False
         else:
             print(f'O veículo {self.index_carro} {self.tipo} {self.marca} está indo ao seu posto.\n')
-            return [self.index_carro, self.tipo, self.marca, self.combustivel, self.capacidade_tanque_combustivel, self.tanque_combustivel]
+            self.requisicao = True
