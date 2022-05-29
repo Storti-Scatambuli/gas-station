@@ -9,8 +9,9 @@ class Car:
     combustivel = 'Gasolina'
     index_bomba = 0
     index_carro = 0
-
-    def gerar_carro(self):
+    fila = bool()
+    
+    def __init__(self):
         tipos = ['Sedã', 'SUV', 'Caminhão']
         marcas = [['Honda', 'Volkswagen', 'Fiat'], ['Jeep', 'Volkswagen', 'Chevrolet'], ['Man', 'Mercedes-benz']]
         tipos_combustivel = ['Gasolina', 'Diesel', 'Etanol', 'GNV']
