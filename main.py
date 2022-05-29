@@ -15,10 +15,11 @@ bombas.append(bomba2)
 bombas.append(bomba3)
 bombas.append(bomba4)
 
-cont = 0
+index_carro = 0
 while True:
     if random() >= 0.5:
-        carro = cars.Car(cont)
+        index_carro += 1
+        carro = cars.Car(index_carro)
         
         if carro.requisicao:
             carro.fila = True
@@ -29,7 +30,7 @@ while True:
                     if i.quantidade_combustivel > carro_objeto.capacidade_tanque_combustivel - carro_objeto.capacidade_tanque_combustivel and i.mangueiras >= 1:
                         print(f'O veículo {carro_objeto.index_carro} {carro_objeto.tipo} {carro_objeto.marca} está sendo abastecido na {i.nome}\n')
                         tempo_encher = (carro_objeto.capacidade_tanque_combustivel - carro_objeto.tanque_combustivel) // 2
-                        abastecimento.append([carro_objeto, cont, tempo_encher])
+                        abastecimento.append([carro_objeto, index_carro, tempo_encher])
                         carro_objeto.index_bomba = index
                         i.encher(carro_objeto, carro_objeto.capacidade_tanque_combustivel - carro_objeto.tanque_combustivel)
                         fila.remove(carro_objeto)
@@ -42,17 +43,17 @@ while True:
                     fila.remove(carro_objeto)
                     
     for index, veiculo in enumerate(abastecimento):
-        if veiculo[1] + veiculo[2] <= cont:
+        if veiculo[1] + veiculo[2] <= index_carro:
             abastecimento.pop(index)
             print(f'O veículo {veiculo[0].index_carro} {veiculo[0].tipo} {veiculo[0].marca} foi abastecido e saiu do posto!\n')
             print(f'Uma mangueira da {bombas[veiculo[0].index_bomba].nome} foi livrada!\n')
             bombas[veiculo[0].index_bomba].mangueiras = +1
 
-    cont += 1
-    if cont >= 10 and len(fila) == 0:
+    
+    if index_carro >= 10 and len(fila) == 0:
         print('O posto fechou e todos os veículos foram abastecidos')
         break
-    elif cont > 100:
+    elif index_carro > 100:
         print('O posto fechou por exesso de veículos')
         break
     sleep(1.5)
